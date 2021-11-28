@@ -3,6 +3,14 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: functional
-- file: arrays
+parts: 
+  - caption: JAX Fundamentals
+    chapters:
+    - file: functional
+    - file: arrays
+    - file: fundamentals/control_flow
+      sections: 
+      - file: fundamentals/while_loop
+  - caption: Linear Algebra
+    chapters: 
+    - file: la/intro
