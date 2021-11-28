@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thinking in JAX &#8212; Thinking in JAX</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -53,7 +53,10 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Functional Programming" href="functional.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -92,6 +95,11 @@
   </a>
  </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  JAX Fundamentals
+ </span>
+</p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="functional.html">
@@ -101,6 +109,35 @@
  <li class="toctree-l1">
   <a class="reference internal" href="arrays.html">
    JAX arrays
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="fundamentals/control_flow.html">
+   Control Flow Structures
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="fundamentals/while_loop.html">
+     While loops
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Linear Algebra
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="la/intro.html">
+   Linear Algebra in JAX
   </a>
  </li>
 </ul>
@@ -185,6 +222,19 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-jax">
+   What is JAX
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -195,16 +245,29 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="thinking-in-jax">
 <h1>Thinking in JAX<a class="headerlink" href="#thinking-in-jax" title="Permalink to this headline">¶</a></h1>
-<p>This is a beginner level book to get your grooves in Google JAX.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Here is a note!</p>
+<p>This is a beginner level book to get your grooves in <code class="docutils literal notranslate"><span class="pre">Google</span> <span class="pre">JAX</span></code>.</p>
+<div class="section" id="what-is-jax">
+<h2>What is JAX<a class="headerlink" href="#what-is-jax" title="Permalink to this headline">¶</a></h2>
+<p>We attempt to describe JAX by comparing with its predecessors and peers.</p>
+<p>In short, <code class="docutils literal notranslate"><span class="pre">JAX</span></code> is a new Python library for numerical computing.</p>
+<ul class="simple">
+<li><p>It provides a <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> like API for numerical computing. This helps in easy transition of existing users of <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> to <code class="docutils literal notranslate"><span class="pre">JAX</span></code>.</p></li>
+<li><p>At the same time, it is built from ground up using functional programming principles.</p></li>
+<li><p>Thus, data structures like JAX arrays are <em>immutable</em>.</p></li>
+<li><p>So, although its API resembles <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, it’s not quite the same. In <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, arrays are mutable.</p></li>
+<li><p>A major focus area for <code class="docutils literal notranslate"><span class="pre">JAX</span></code> is deep learning. It has been regularly compared with <code class="docutils literal notranslate"><span class="pre">TensorFlow</span></code> and <code class="docutils literal notranslate"><span class="pre">PyTorch</span></code>.</p></li>
+<li><p>However, <code class="docutils literal notranslate"><span class="pre">JAX</span></code> actually provides the low level plumbing for building machine learning libraries. The libraries
+which provide actual ML building blocks are <code class="docutils literal notranslate"><span class="pre">dm-haiku</span></code>, <code class="docutils literal notranslate"><span class="pre">flax</span></code>, <code class="docutils literal notranslate"><span class="pre">rlax</span></code>, <code class="docutils literal notranslate"><span class="pre">trax</span></code>, etc.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">JAX</span></code> core can be used in any scientific computing problem.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JAX</span></code> provides built-in support for automatic differentiation (AD). AD is key for successfully implementing large deep learning networks.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JAX</span></code> provides a JUST-IN-TIME (<code class="docutils literal notranslate"><span class="pre">jit</span></code>) compiler. It can compile a Python code written as per JAX conventions (functional programming etc.)
+to suitable machine code for a variety of hardware architectures thanks to <code class="docutils literal notranslate"><span class="pre">XLA</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JAX</span></code> enables you to write code in Python which can run efficiently across CPU/GPU/TPU architectures.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JAX</span></code> has built-in support for vectorizing a function over different dimensions of input data.</p></li>
+</ul>
 </div>
-<p>And here is a code block:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="n">mc</span><span class="o">^</span><span class="mi">2</span>
-</pre></div>
+<div class="toctree-wrapper compound">
 </div>
-<p>Check out the content pages bundled with this sample book to see more.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -232,22 +295,15 @@
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-     <div id="next">
-        <a class="right-next" href="functional.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Functional Programming</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='right-next' id="next-link" href="functional.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Functional Programming</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -268,8 +324,7 @@
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
